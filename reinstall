@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+Dir.glob("./*.gem").each { |path| `rm #{path}` }
+puts `gem uninstall -x animation_loader_ruby`
+puts `gem build animation_loader_ruby.gemspec`
+Dir.glob("./*.gem").each { |path| puts `gem install -f #{path}` }
